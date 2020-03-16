@@ -6,31 +6,124 @@
 unsigned int ns[] = { 10, /* TODO: fill in "n" i.e. instance sizes */ };
 
 void fill_increasing(int *t, unsigned int n) {
+    
+    for (int i = 0; i < n; i++)
+    {
+        tabr[i] = i+ rand() % 34324632;
+    }
     // TODO: implement
 }
 
 void fill_decreasing(int *t, unsigned int n) {
-    // TODO: implement
+    int pom;
+    pom = n + 1;
+    for (int i = 0; i < n; i++)
+    {
+        tabm[i] = pom;
+        pom -= 1;
+    }// TODO: implement
 }
 
 void fill_vshape(int *t, unsigned int n) {
-    // TODO: implement
+   int pom = 0;
+    for (int i = n; i > 0; i--)
+    {
+        if (n % 2 == 0)
+        {
+            if (i <(n / 2))
+            {
+                pom += 1;
+                taba[i] = pom;
+
+            }
+            if (i >= (n / 2))
+            {
+                pom -= 1;
+                taba[i] = pom;
+            }
+        }
+        else
+        {
+            if (i <= (n / 2))
+            {
+                pom += 1;
+                taba[i] = pom;
+
+            }
+            if (i > (n / 2))
+            {
+                pom -= 1;
+                taba[i] = pom;
+            }
+        } // TODO: implement
 }
 
 void selection_sort(int *t, unsigned int n) {
-    // TODO: implement
+  int k;
+    for( int i = 0; i < n; i++ )
+    {
+        k = i;
+        for( int j = i + 1; j < n; j++ )
+            if( tab[ j ] < tab[ k ] )
+                k = j;
+
+        swap( tab[ k ], tab[ i ] );
+    }  // TODO: implement
 }
 
 void insertion_sort(int *t, unsigned int n) {
-    // TODO: implement
+   int pom, j;
+    for(int i=1; i<n; i++)
+    {
+        pom=tab[i];
+        for ( j=i-1; j>=0 && tab[j]>pom; j--)
+        {
+            tab[j+1] = tab[j];
+        }
+        tab[j+1]=pom;
+    } // TODO: implement
 }
 
 void quick_sort(int *t, unsigned int n) {
-    // TODO: implement
+   int lewy, prawy;
+    lewy=0;
+    prawy=n-1;
+    
+    if(prawy <= lewy) return;
+    int i, j, k, x;
+    k=lewy+int((prawy-lewy+1)* rand()/(RAND_MAX+1.0));
+    x=tab[k];
+    i = lewy - 1;
+    j = prawy + 1;
+
+    while(1)
+    {
+        while(x>tab[++i]);
+
+        while(x<tab[--j]);
+
+        if( i <= j)
+            swap(tab[i],tab[j]);
+        else
+            break;
+    }
+
+    if(j > lewy)
+        quick_sort_(tab, lewy, j);
+
+    if(i < prawy)
+        quick_sort_(tab, i, prawy); // TODO: implement
 }
 
 void heap_sort(int *t, unsigned int n) {
-    // TODO
+    for(int i=n/2-1; i>=0; i--)
+        przywaracanie_kopca(tab, n, i);
+
+    for(int i=n-1; i>=0; i--)
+    {
+        swap(tab[0], tab[i]);
+        przywaracanie_kopca(tab, i, 0);
+    }// TODO
 }
 
 void fill_random(int *t, unsigned int n) {
