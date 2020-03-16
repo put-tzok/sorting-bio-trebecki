@@ -6,7 +6,7 @@
 unsigned int ns[] = { 10, /* TODO: fill in "n" i.e. instance sizes */ };
 
 void fill_increasing(int *t, unsigned int n) {
-    
+    int tabr[];
     for (int i = 0; i < n; i++)
     {
         tabr[i] = i+ rand() % 34324632;
@@ -17,6 +17,7 @@ void fill_increasing(int *t, unsigned int n) {
 void fill_decreasing(int *t, unsigned int n) {
     int pom;
     pom = n + 1;
+    int tabm[n]
     for (int i = 0; i < n; i++)
     {
         tabm[i] = pom;
@@ -26,6 +27,7 @@ void fill_decreasing(int *t, unsigned int n) {
 
 void fill_vshape(int *t, unsigned int n) {
    int pom = 0;
+   int taba[n];
     for (int i = n; i > 0; i--)
     {
         if (n % 2 == 0)
@@ -60,6 +62,7 @@ void fill_vshape(int *t, unsigned int n) {
 
 void selection_sort(int *t, unsigned int n) {
   int k;
+  int tab[n];
     for( int i = 0; i < n; i++ )
     {
         k = i;
@@ -72,7 +75,7 @@ void selection_sort(int *t, unsigned int n) {
 }
 
 void insertion_sort(int *t, unsigned int n) {
-   int pom, j;
+   int pom, j, tab[n];
     for(int i=1; i<n; i++)
     {
         pom=tab[i];
@@ -85,12 +88,14 @@ void insertion_sort(int *t, unsigned int n) {
 }
 
 void quick_sort(int *t, unsigned int n) {
-   int lewy, prawy;
+   int lewy, prawy,tab[n];
     lewy=0;
     prawy=n-1;
     
+    
     if(prawy <= lewy) return;
     int i, j, k, x;
+    int tab[n]
     k=lewy+int((prawy-lewy+1)* rand()/(RAND_MAX+1.0));
     x=tab[k];
     i = lewy - 1;
@@ -116,6 +121,7 @@ void quick_sort(int *t, unsigned int n) {
 }
 
 void heap_sort(int *t, unsigned int n) {
+    int tab[n];
     for(int i=n/2-1; i>=0; i--)
         przywaracanie_kopca(tab, n, i);
 
