@@ -119,7 +119,23 @@ void quick_sort(int *t, unsigned int n) {
     if(i < prawy)
         quick_sort_(tab, i, prawy); // TODO: implement
 }
+void przywaracanie_kopca(int tab[], int n, int i)
+{
 
+    int k = i;
+    int lewy=2*i+1;
+    int prawy= 2*i+2;
+
+    if(lewy<n && tab[1]>tab[k])
+        k=lewy;
+    if(prawy<n && tab[prawy]> tab[k])
+        k=prawy;
+    if (k != i)
+    {
+        swap(tab[i], tab[k]);
+        przywaracanie_kopca(tab, n, k);
+    }
+}
 void heap_sort(int *t, unsigned int n) {
     int tab[n];
     for(int i=n/2-1; i>=0; i--)
