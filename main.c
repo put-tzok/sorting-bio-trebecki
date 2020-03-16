@@ -6,7 +6,7 @@
 unsigned int ns[] = { 10, /* TODO: fill in "n" i.e. instance sizes */ };
 
 void fill_increasing(int *t, unsigned int n) {
-    int tabr[];
+    int tabr[n];
     for (int i = 0; i < n; i++)
     {
         tabr[i] = i+ rand() % 34324632;
@@ -17,7 +17,7 @@ void fill_increasing(int *t, unsigned int n) {
 void fill_decreasing(int *t, unsigned int n) {
     int pom;
     pom = n + 1;
-    int tabm[n]
+    int tabm[n];
     for (int i = 0; i < n; i++)
     {
         tabm[i] = pom;
@@ -95,7 +95,7 @@ void quick_sort(int *t, unsigned int n) {
     
     if(prawy <= lewy) return;
     int i, j, k, x;
-    int tab[n]
+    int tab[n];
     k=lewy+int((prawy-lewy+1)* rand()/(RAND_MAX+1.0));
     x=tab[k];
     i = lewy - 1;
